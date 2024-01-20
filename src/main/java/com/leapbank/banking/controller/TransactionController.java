@@ -33,13 +33,26 @@ import org.springframework.http.ResponseEntity;
             return ResponseEntity.ok(transactionId);
         }
 
-        @GetMapping("/history/{customerId}")
+        @GetMapping("/transaction/history")
         public ResponseEntity<List<Transaction>> getTransactionHistory(
-                @PathVariable Long customerId,
-                @RequestParam(required = false) String filterName,
-                @RequestParam(required = false) String filterValue
-        ) {
-            List<Transaction> transactionHistory = transactionService.getTransactionHistory(customerId, filterName, filterValue);
-            return ResponseEntity.ok(transactionHistory);
+                @RequestParam Long customerId,
+                @RequestParam String startDate,
+                @RequestParam String endDate) {
+            try {
+                // Assuming you have a method in TransactionService to retrieve history
+                List<Transaction> transactionHistory = transactionService.getTransactionHistory(customerId, startDate, endDate);
+
+                // Check if history is empty
+                if (transactionHistory.isEmpty()) {
+                    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+                }
+
+                return new ResponseEntity<>(transactionHistory, HttpStatus.OK);
+
+            } catch (Exception e) {
+                // Handle exceptions (e.g., invalid date formats)
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
         }
+
     }
