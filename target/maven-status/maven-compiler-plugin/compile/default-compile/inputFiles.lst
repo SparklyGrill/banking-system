@@ -1,0 +1,11 @@
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/service/AccountService.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/service/CustomerService.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/repository/TransactionRepository.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/repository/AccountRepository.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/controller/CustomerController.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/controller/TransactionController.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/model/Customer.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/model/Transaction.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/service/TransactionService.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/repository/CustomerRepository.java
+/Users/iskra/IdeaProjects/simple-banking-system/src/main/java/com/leapbank/banking/model/Account.java
