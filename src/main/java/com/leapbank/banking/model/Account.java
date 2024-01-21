@@ -12,6 +12,7 @@ public class Account {
 
     private String accountNumber;
     private String accountType;
+    @Column(name = "balance")
     private double balance;
     private double pastMonthTurnover;
 
@@ -25,6 +26,23 @@ public class Account {
     @OneToMany(mappedBy = "receiverAccount")
     private List<Transaction> receivedTransactions;
 
-    // Getters and setters
+
+    public void updateBalance(double amount) {
+        // Use the balance field within methods
+        this.balance += amount;
+    }
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+
 
 }

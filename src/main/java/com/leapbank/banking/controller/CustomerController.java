@@ -18,6 +18,10 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    public CustomerService getCustomerService() {
+        return customerService;
+    }
+
     // Implement REST endpoints for customers
 
 }

@@ -1,11 +1,18 @@
 package com.leapbank.banking.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.leapbank.banking.model.Account;
+import com.leapbank.banking.model.Customer;
+import com.leapbank.banking.repository.CustomerRepository;
 import com.leapbank.banking.model.Transaction;
 import com.leapbank.banking.repository.TransactionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TransactionService {
@@ -102,5 +109,48 @@ public class TransactionService {
         return transactionHistory;
     }
 
-}
+    // New methods
+    public Account getSenderAccount(Transaction transaction) {
+        return transaction.getSenderAccount();
+    }
 
+    public Account getReceiverAccount(Transaction transaction) {
+        return transaction.getReceiverAccount();
+    }
+
+    public double getAmount(Transaction transaction) {
+        return transaction.getAmount();
+    }
+
+    public double getBalance(Account account) {
+        return account.getBalance();
+    }
+
+    public Customer getCustomer(Account account) {
+        return account.getCustomer();
+    }
+
+    public Long getId(Transaction transaction) {
+        return transaction.getId();
+    }
+
+    public List<Account> getAccounts(Customer customer) {
+        return customer.getAccounts();
+    }
+
+    public List<Transaction> getSentTransactions(Account account) {
+        return account.getSentTransactions();
+    }
+
+    public List<Transaction> getReceivedTransactions(Account account) {
+        return account.getReceivedTransactions();
+    }
+
+    public String getCurrencyId(Transaction transaction) {
+        return transaction.getCurrencyId();
+    }
+
+    public List<Transaction> getTransactionHistory(Long customerId, String startDate, String endDate) {
+        return getTransactionHistory(customerId, startDate, endDate);
+    }
+}

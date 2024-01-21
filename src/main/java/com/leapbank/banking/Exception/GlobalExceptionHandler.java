@@ -16,28 +16,24 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<String> handleException(Exception e) {
-        // Log the exception if needed
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
     }
 
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleBindException(BindException e) {
-        // Log the exception
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad Request: " + e.getMessage());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleValidationException(MethodArgumentNotValidException e) {
-        // Log the exception
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Validation Error: " + e.getMessage());
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleConstraintViolationException(ConstraintViolationException e) {
-        // Log the exception
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Constraint Violation: " + e.getMessage());
     }
 
@@ -48,7 +44,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({ RuntimeException.class, IllegalStateException.class })
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<String> handleUnmappedException(Exception e) {
-        // Log the exception
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
     }
 }

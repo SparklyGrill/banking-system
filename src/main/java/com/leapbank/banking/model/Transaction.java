@@ -1,32 +1,64 @@
 package com.leapbank.banking.model;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
-@Entity
 public class Transaction {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "sender_account_id")
     private Account senderAccount;
-
-    @ManyToOne
-    @JoinColumn(name = "receiver_account_id")
     private Account receiverAccount;
-
     private double amount;
-
     private String currencyId;
-
-    private String message;
-
-    @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
 
-    // Getters and setters
+    // ... existing fields and methods ...
+
+    public Account getSenderAccount() {
+        return senderAccount;
+    }
+
+    public void setSenderAccount(Account senderAccount) {
+        this.senderAccount = senderAccount;
+    }
+
+    public Account getReceiverAccount() {
+        return receiverAccount;
+    }
+
+    public void getReceiverAccount(Account receiverAccount) {
+        this.receiverAccount = receiverAccount;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public String getCurrencyId() {
+        return currencyId;
+    }
+
+    public void setCurrencyId(String currencyId) {
+        this.currencyId = currencyId;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public Long getId() {
+        return ;
+    }
+
+
+    // ... other methods ...
 
 }
